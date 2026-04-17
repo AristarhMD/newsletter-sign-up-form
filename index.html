@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <title>Newsletter sign-up form with success message</title>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <picture>
+          <source
+            media="(min-width:1440px)"
+            srcset="images/illustration-sign-up-desktop.svg"
+          />
+          <source
+            media="(min-width:768px)"
+            srcset="images/illustration-sign-up-tablet.svg"
+          />
+          <img
+            class="header-img"
+            src="images/illustration-sign-up-mobile.svg"
+            alt="Image of the screen, interface of the program, graph"
+          />
+        </picture>
+      </header>
+      <main class="content">
+        <div class="content-text">
+          <h1 class="content-h1">Stay updated!</h1>
+          <p class="content-p">
+            Join 60,000+ product managers receiving monthly updates on:
+          </p>
+          <ul class="content-list">
+            <li class="list-item">
+              <img src="images/icon-list.svg" alt="" class="list-item-img" />
+              <p class="list-item-p">
+                Product discovery and building what matters
+              </p>
+            </li>
+            <li class="list-item">
+              <img src="images/icon-list.svg" alt="" class="list-item-img" />
+              <p class="list-item-p">
+                Measuring to ensure updates are a success
+              </p>
+            </li>
+            <li class="list-item">
+              <img src="images/icon-list.svg" alt="" class="list-item-img" />
+              <p class="list-item-p">And much more!</p>
+            </li>
+          </ul>
+        </div>
+
+        <form class="content-form" novalidate>
+          <label for="email">Email address</label>
+          <p class="error hidden">Valid email required</p>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="email@company.com"
+          />
+          <button class="submit" type="submit">
+            Subscribe to monthly newsletter
+          </button>
+        </form>
+      </main>
+    </div>
+
+    <div class="container-success hidden">
+      <div class="content-success">
+        <div class="success-img">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="64"
+            height="64"
+            viewBox="0 0 64 64"
+          >
+            <defs>
+              <linearGradient id="a" x1="100%" x2="0%" y1="0%" y2="100%">
+                <stop offset="0%" stop-color="#FF6A3A" />
+                <stop offset="100%" stop-color="#FF527B" />
+              </linearGradient>
+            </defs>
+            <g fill="none">
+              <circle cx="32" cy="32" r="32" fill="url(#a)" />
+              <path
+                stroke="#FFF"
+                stroke-width="4"
+                d="m18.286 34.686 8.334 7.98 19.094-18.285"
+              />
+            </g>
+          </svg>
+        </div>
+        <h1 class="success-h1">Thanks for subscribing</h1>
+        <p class="success-p">
+          A confirmation email has been sent to
+          <span class="subscribed-email">ash@loremcompany.com</span>. Please
+          open it and click the button inside to confirm your subscription
+        </p>
+      </div>
+
+      <button type="button">Dismiss message</button>
+    </div>
+  </body>
+</html>
