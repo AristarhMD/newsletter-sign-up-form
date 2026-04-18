@@ -137,10 +137,6 @@ p {
   color: var(--c-r);
 }
 
-.content-form .hidden {
-  display: none;
-}
-
 .content-form input {
   grid-column: 1/-1;
   grid-row: 2/3;
@@ -179,7 +175,10 @@ p {
 .content-form button {
   grid-column: 1/-1;
   grid-row: 3/4;
+}
 
+.content-form button,
+.container-success button {
   font-size: var(--fs-16);
   font-weight: var(--fw-bold);
   line-height: var(--lh-150);
@@ -193,13 +192,38 @@ p {
   cursor: pointer;
 }
 
-.content-form button:hover {
+.content-form button:hover,
+.container-success button:hover {
   background: var(--g-1);
   box-shadow: 0 16px 32px var(--c-r-op);
 }
 
 .hidden {
-  display: none;
+  display: none !important;
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Success container */
+.container-success {
+  width: clamp(23.43rem, 79.16%, 31.5rem);
+  height: 38.93rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: var(--s-104) var(--s-24) 0;
+}
+
+.content-success {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-32);
+  justify-content: center;
+}
+
+.success-p span {
+  font-weight: var(--fw-bold);
 }
 
 @media screen and (min-width: 48rem) {
@@ -223,6 +247,16 @@ p {
 
   h1 {
     font-size: var(--fs-56);
+  }
+
+  /* Success modal */
+  .container-success {
+    height: auto;
+    gap: var(--s-32);
+    margin: 0;
+    padding: var(--s-64);
+    background-color: var(--c-w);
+    border-radius: 2.25rem;
   }
 }
 

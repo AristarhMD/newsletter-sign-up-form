@@ -5,6 +5,10 @@ const formEl = document.querySelector(".content-form");
 const emailInput = document.querySelector("#email");
 const errorMessage = document.querySelector(".error");
 
+// Success const
+const authorEmail = document.querySelector(".subscribed-email");
+const dismissBtn = document.querySelector(".dismiss");
+
 formEl.addEventListener("submit", (e) => {
   inputValue = emailInput.value;
   e.preventDefault();
@@ -12,29 +16,31 @@ formEl.addEventListener("submit", (e) => {
   if (inputValue?.length === 0) {
     e.preventDefault();
     showErrorMessage("Email is required");
-    applyErrorInput();
   } else if (!inputValue?.includes("@")) {
     e.preventDefault();
     showErrorMessage("Valid email required");
-    applyErrorInput();
   } else {
+    authorEmail.textContent = emailInput.value;
     emailInput.value = "";
     removeError();
-    contentContainer.classList.toggle("hidden");
-    succesSubscriptionContainer.classList.toggle("hidden");
+    toggleHide();
   }
 });
 
+dismissBtn.addEventListener("click", () => {
+  toggleHide();
+});
+
 function showErrorMessage(text) {
+  // Check error message
   if (errorMessage?.classList.contains("hidden")) {
     errorMessage.textContent = text;
     errorMessage.classList.remove("hidden");
   } else {
     errorMessage.textContent = text;
   }
-}
 
-function applyErrorInput() {
+  // Check input if have error class
   !emailInput?.classList.contains("wrong")
     ? emailInput.classList.add("wrong")
     : null;
@@ -43,4 +49,9 @@ function applyErrorInput() {
 function removeError() {
   emailInput?.classList.remove("wrong");
   errorMessage?.classList.add("hidden");
+}
+
+function toggleHide() {
+  contentContainer.classList.toggle("hidden");
+  succesSubscriptionContainer.classList.toggle("hidden");
 }
